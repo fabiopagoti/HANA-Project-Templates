@@ -1,0 +1,273 @@
+table.schemaName = "MY_SCHEMA";
+table.temporary = false;
+table.tableType = COLUMNSTORE;
+table.LoggingType = NOLOGGING;
+
+table.columns = 
+[
+
+	// Key example
+    {
+    	name = "key_col";
+    	sqlType = INTEGER;
+    	nullable = false;
+    	unique = true;
+    	comment = "xxx ID";
+   	},
+   	
+   	// Complete Column Specification
+    {
+    	name = "complete";
+    	sqlType = REAL;
+    	nullable = false;
+    	unique = true;
+    	length = 10;
+    	scale = 4;
+    	precision = 5;
+    	defaultValue = 3.14159265359
+    	comment = "Complete Column Specification";
+   	},
+   	
+    
+    // Datetime Types
+
+    {
+    	name = "date_col";
+    	sqlType = DATE;
+    	nullable = false;
+    	comment = "Date Column";;
+   	},
+   	
+    {
+    	name = "time_col";
+    	sqlType = TIME;
+    	nullable = false;
+    	comment = "Time Column";
+   	},
+   	
+    {
+    	name = "second_col";
+    	sqlType = SECONDDATE;
+    	nullable = false;
+    	comment = "Second Date Column";
+   	},
+   	
+    {
+    	name = "timestamp_col";
+    	sqlType = TIMESTAMP;
+    	nullable = false;
+    	comment = "Timestamp Column";
+   	},
+   	
+   	
+    // Numeric Types
+   	
+    {
+    	name = "tinyint_col";
+    	sqlType = TINYINT;
+    	nullable = false;
+    	defaultValue = 0;
+    	comment = "Tinyint Column";
+   	},
+   	   	
+    {
+    	name = "smallint_col";
+    	sqlType = SMALLINT;
+    	nullable = false;
+    	defaultValue = 0;
+    	comment = "Smallint Column";
+   	},
+   	   	
+    {
+    	name = "integer_col";
+    	sqlType = INTEGER;
+    	nullable = false;
+    	defaultValue = 0;
+    	comment = "Integer Column";
+   	},
+   	   	
+    {
+    	name = "bigint_col";
+    	sqlType = BIGINT;
+    	nullable = false;
+    	defaultValue = 0;
+    	comment = "Bigint Column";
+   	},
+   	   	
+    {
+    	name = "smalldecimal_col";
+    	sqlType = SMALLDECIMAL;
+    	nullable = false;
+    	defaultValue = 0;
+    	scale = 4;
+    	precision = 5;    	
+    	comment = "Smalldecimal Column";
+   	},
+   	   	
+    {
+    	name = "decimal_col";
+    	sqlType = DECIMAL;
+    	nullable = false;
+    	defaultValue = 0;
+    	scale = 4;
+    	precision = 5;
+    	comment = "Decimal Column";
+   	},
+   	   	
+    {
+    	name = "real_col";
+    	sqlType = REAL;
+    	nullable = false;
+    	scale = 4;
+    	precision = 5;    	
+    	defaultValue = 0;
+    	comment = "Real Column";
+   	},
+   	   	
+    {
+    	name = "double_col";
+    	sqlType = DOUBLE;
+    	nullable = false;
+    	defaultValue = 0;
+    	scale = 4;
+    	precision = 5;    	
+    	comment = "Double Column";
+   	},
+   	   	
+    {
+    	name = "float_col";
+    	sqlType = FLOAT;
+    	nullable = false;
+    	defaultValue = 0;
+    	length = 25;
+    	scale = 4;
+    	precision = 5;    	
+    	comment = "Float Column";
+   	},
+   	   	
+   	   	
+    // Character String Types
+    
+    {
+    	name = "varchar_col";
+    	sqlType = VARCHAR;
+    	nullable = true;
+    	length = 50;
+    	defaultValue = "-";
+    	comment = "Varchar Column";
+   	},
+   	
+    {
+    	name = "nvarchar_col";
+    	sqlType = NVARCHAR;
+    	nullable = true;
+    	length = 50;
+    	defaultValue = "-";
+    	comment = "Nvarchar Column";
+   	},
+   	
+    {
+    	name = "alphanum_col";
+    	sqlType = ALPHANUM;
+    	nullable = true;
+    	length = 10;
+    	defaultValue = "-";
+    	comment = "Alphanum Column";
+   	},
+   	
+    {
+    	name = "shorttext_col";
+    	sqlType = SHORTTEXT;
+    	nullable = true;
+    	length = 5;
+    	defaultValue = "-";
+    	comment = "Shorttext Column";
+   	},
+   	
+    
+    // Binary Types
+    
+    {
+    	name = "varbinary_col";
+    	sqlType = VARBINARY;
+    	nullable = true;
+    	length = 1;
+    	defaultValue = 0;
+    	comment = "Varbinary Column";
+   	},
+   	
+   	    
+    // Large Object (LOB) Types
+    
+    BLOB, CLOB, NCLOB, TEXT
+    
+    {
+    	name = "blob_col";
+    	sqlType = BLOB;
+    	nullable = true;
+    	comment = "Blob Column";
+   	},
+   	
+    {
+    	name = "clob_col";
+    	sqlType = CLOB;
+    	nullable = true;
+    	comment = "Clob Column";
+   	},
+   	
+    {
+    	name = "nclob_col";
+    	sqlType = NCLOB;
+    	nullable = true;
+    	comment = "Nclob Column";
+   	},
+   	
+    {
+    	name = "text_col";
+    	sqlType = TEXT;
+    	nullable = true;
+    	comment = "Text Column";
+   	},
+   	 
+]; // end table.columns
+   
+
+
+
+table.indexes = 
+[
+	{
+		name = "index1";
+		unique = true;
+		order = ASC;
+		indexType = B_TREE;
+		indexColumns = 
+		{
+			[ "index_col" ];
+		}
+	},
+	
+	{
+		name = "index2";
+		unique = true;
+		order = ASC;
+		indexType = CPB_TREE;
+		indexColumns = 
+		{
+			[ "index_col", "index_col2" ];
+		}
+	},
+	
+	
+]; // end table.indexes
+
+table.primaryKey.pkcolumns = ["key_col"];
+
+table.description = "Table Description";
+
+
+
+
+
+
+
