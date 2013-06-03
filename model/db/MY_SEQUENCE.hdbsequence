@@ -1,0 +1,6 @@
+schema = "MY_SCHEMA";
+increment_by = 1;
+start_with = -1;
+cycles = false;
+public = false;
+depends_on_table = "com.domain.xxx.model.db::MY_TABLE";
